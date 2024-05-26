@@ -58,7 +58,7 @@ onMounted(() => {
 		.attr("width", width)
 		.attr("height", height);
 
-	d3.csv("/buildings/buildings.csv").then((data) => {
+	d3.csv(`${import.meta.env.BASE_URL}buildings/buildings.csv`).then((data) => {
 		// 将 height_m 列的值转换为数字
 		data.forEach((d) => {
 			d.height_m = +d.height_m; // 使用 + 运算符将字符串转换为数字
@@ -69,7 +69,7 @@ onMounted(() => {
 
 		// 设置默认展示的图片和数据是第一高的
 		currentBuilding.value = data[0];
-		buildingImage.value = `buildings/img/${currentBuilding.value.image}`;
+		buildingImage.value = `${import.meta.env.BASE_URL}buildings/img/${currentBuilding.value.image}`;
 
 		// 绑定数据到矩形
 		svg.selectAll(".bar")
@@ -86,7 +86,7 @@ onMounted(() => {
 			.on("click", (d) => {
 				// 更新数据
 				currentBuilding.value = d.currentTarget.__data__;
-				buildingImage.value = `buildings/img/${currentBuilding.value.image}`;
+				buildingImage.value = `${import.meta.env.BASE_URL}buildings/img/${currentBuilding.value.image}`;
 			});
 
 		// 添加建筑物名称标签

@@ -107,7 +107,7 @@ const yAxisItems = {
 };
 // 读取CSV数据
 async function loadData() {
-	const data = await d3.csv("/fifa-world-cup.csv", d3.autoType);
+	const data = await d3.csv(`${import.meta.env.BASE_URL}fifa-world-cup.csv`, d3.autoType);
 	return data;
 }
 
