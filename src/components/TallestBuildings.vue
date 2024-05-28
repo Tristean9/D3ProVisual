@@ -118,6 +118,7 @@ onMounted(() => {
 <style scoped>
 .item-container {
 	width: 1600px;
+    min-width: 1200px;
 	margin: 2rem auto;
 }
 .title-container {
